@@ -64,10 +64,11 @@
     .logo {
       font-size: 1.2rem;
       font-weight: 800;
-      letter-spacing: 0.4px;
     }
 
-    .logo span {
+    .logo span,
+    .eyebrow,
+    .section-label {
       color: var(--teal);
     }
 
@@ -94,10 +95,10 @@
         radial-gradient(circle at 20% 80%, rgba(29, 125, 181, 0.2), transparent 30%);
     }
 
-    .eyebrow {
+    .eyebrow,
+    .section-label {
       display: inline-block;
-      color: var(--teal);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: bold;
       letter-spacing: 1.5px;
       text-transform: uppercase;
@@ -114,8 +115,21 @@
       color: var(--teal);
     }
 
-    .hero-text {
+    h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin: 8px 0 16px;
+    }
+
+    .hero-text,
+    .section-intro,
+    .panel p,
+    .project-card p,
+    .resume-item p,
+    .contact p {
       color: var(--muted);
+    }
+
+    .hero-text {
       font-size: 1.1rem;
       max-width: 650px;
       margin-bottom: 30px;
@@ -154,11 +168,17 @@
       background: rgba(255, 255, 255, 0.08);
     }
 
-    .data-card {
-      background: linear-gradient(145deg, #103454, #0a2138);
+    .data-card,
+    .panel,
+    .project-card {
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 18px;
+      border-radius: 14px;
+    }
+
+    .data-card {
       padding: 28px;
+      background: linear-gradient(145deg, #103454, #0a2138);
       box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
     }
 
@@ -206,21 +226,7 @@
       padding: 88px 0;
     }
 
-    .section-label {
-      color: var(--teal);
-      font-size: 0.85rem;
-      font-weight: bold;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      margin: 8px 0 16px;
-    }
-
     .section-intro {
-      color: var(--muted);
       max-width: 700px;
       margin-bottom: 38px;
     }
@@ -234,16 +240,7 @@
 
     .panel,
     .project-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
       padding: 28px;
-    }
-
-    .panel p,
-    .project-card p,
-    .resume-item p {
-      color: var(--muted);
     }
 
     .skills {
@@ -268,33 +265,18 @@
       gap: 24px;
     }
 
-    .project-visual {
-      height: 190px;
-      background: linear-gradient(135deg, #1a628a, #103454);
-      border-radius: 10px;
+    .powerbi-report {
+      height: 360px;
       margin-bottom: 24px;
-      padding: 22px;
       overflow: hidden;
+      border-radius: 10px;
+      background: white;
     }
 
-    .mini-title {
-      color: #d7e9f7;
-      font-size: 0.8rem;
-      margin-bottom: 18px;
-    }
-
-    .mini-bars {
-      display: flex;
-      align-items: end;
-      height: 105px;
-      gap: 9px;
-    }
-
-    .mini-bars span {
-      flex: 1;
-      background: var(--orange);
-      border-radius: 4px 4px 0 0;
-      opacity: 0.92;
+    .powerbi-report iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
     .project-card h3 {
@@ -353,7 +335,6 @@
     }
 
     .contact p {
-      color: var(--muted);
       max-width: 580px;
       margin: 0 auto 28px;
     }
@@ -374,6 +355,7 @@
       }
 
       .hero {
+        min-height: auto;
         padding: 65px 0;
       }
 
@@ -384,24 +366,34 @@
       section {
         padding: 65px 0;
       }
+
+      .powerbi-report {
+        height: 320px;
+      }
     }
 
     @media print {
-      nav, .button-group, footer {
+      nav,
+      .button-group,
+      footer,
+      .contact {
         display: none;
       }
 
-      body, .resume {
+      body,
+      .resume {
         background: white;
         color: #111827;
       }
 
       .panel {
-        border-color: #d1d5db;
         background: white;
+        border-color: #d1d5db;
       }
 
-      .panel p, .resume-item p, .resume-list {
+      .panel p,
+      .resume-item p,
+      .resume-list {
         color: #374151;
       }
     }
@@ -412,6 +404,7 @@
   <nav>
     <div class="container nav-content">
       <a class="logo" href="#home">JK<span>.</span>Data</a>
+
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#projects">Dashboard</a>
@@ -425,11 +418,13 @@
     <div id="home" class="container hero">
       <div>
         <span class="eyebrow">Aspiring Data Analyst · Pune, India</span>
+
         <h1>Turning data into <span>clear insights.</span></h1>
+
         <p class="hero-text">
-          I am Juned Kazi, a fresher data analyst focused on transforming raw
-          data into meaningful dashboards, reports, and business insights using
-          SQL, Power BI, Excel, Power Query, and DAX.
+          I am Juned Kazi, an aspiring data analyst focused on transforming
+          raw data into meaningful dashboards, reports, and business insights
+          using SQL, Power BI, Excel, Power Query, and DAX.
         </p>
 
         <div class="button-group">
@@ -440,6 +435,7 @@
 
       <div class="data-card">
         <h3>Sales Performance Snapshot</h3>
+
         <div class="chart">
           <div class="bar" style="height: 45%;"></div>
           <div class="bar" style="height: 68%;"></div>
@@ -448,6 +444,7 @@
           <div class="bar" style="height: 72%;"></div>
           <div class="bar" style="height: 96%;"></div>
         </div>
+
         <div class="metrics">
           <div class="metric">
             <strong>₹2.3M</strong>
@@ -473,16 +470,17 @@
         <div class="about-grid">
           <div class="panel">
             <p>
-              I am an aspiring data analyst based in Pune with a strong interest
-              in analysing business data and presenting findings through
-              easy-to-understand visualisations. I enjoy solving problems,
-              identifying trends, and helping decision-makers act with
-              confidence.
+              I am an aspiring data analyst based in Pune with a strong
+              interest in analysing business data and presenting findings
+              through easy-to-understand visualisations. I enjoy solving
+              problems, identifying trends, and helping decision-makers act
+              with confidence.
             </p>
           </div>
 
           <div class="panel">
             <h3>Core Skills</h3>
+
             <div class="skills">
               <span class="skill">SQL</span>
               <span class="skill">Power BI</span>
@@ -502,26 +500,24 @@
       <div class="container">
         <p class="section-label">Featured Work</p>
         <h2>Dashboard Projects</h2>
+
         <p class="section-intro">
-          A collection of projects demonstrating data preparation, analysis,
-          visualisation, and insight communication.
+          A project demonstrating data preparation, analysis, visualisation,
+          and insight communication.
         </p>
 
         <div class="projects">
           <article class="project-card">
-            <div class="project-visual">
-              <p class="mini-title">E-commerce Sales Dashboard</p>
-              <div class="mini-bars">
-                <span style="height: 45%;"></span>
-                <span style="height: 70%;"></span>
-                <span style="height: 55%;"></span>
-                <span style="height: 90%;"></span>
-                <span style="height: 65%;"></span>
-                <span style="height: 100%;"></span>
-              </div>
+            <div class="powerbi-report">
+              <iframe
+                title="Amazon Sales Dashboard"
+                src="https://app.powerbi.com/view?r=eyJrIjoiNWJjMDBlNTItY2EwZC00ZjJkLTg4ZjEtNjVkNTZiMDc1Yjg5IiwidCI6IjBkZTRmOTJjLTY0NmItNGU5NS1iYTRmLTYwOTJiYWNjYjQ2MSJ9"
+                allowfullscreen="true">
+              </iframe>
             </div>
 
             <h3>E-commerce Sales Dashboard</h3>
+
             <p>
               An interactive sales dashboard designed to track revenue, profit,
               order volume, product categories, customer segments, and regional
@@ -533,33 +529,12 @@
               SQL · Power BI · Excel · Power Query · DAX
             </p>
 
-            <!-- Replace # with your Power BI or GitHub project link later -->
-            <a class="project-link" href="#">Dashboard link coming soon →</a>
-          </article>
-
-          <article class="project-card">
-            <div class="project-visual" style="background: linear-gradient(135deg, #146b63, #0e3347);">
-              <p class="mini-title">Next Project</p>
-              <div class="mini-bars">
-                <span style="height: 35%; background: #6ee7b7;"></span>
-                <span style="height: 60%; background: #6ee7b7;"></span>
-                <span style="height: 78%; background: #6ee7b7;"></span>
-                <span style="height: 55%; background: #6ee7b7;"></span>
-                <span style="height: 90%; background: #6ee7b7;"></span>
-              </div>
-            </div>
-
-            <h3>More Projects Coming Soon</h3>
-            <p>
-              This space is reserved for your next dashboard, SQL case study,
-              or Excel analysis project.
-            </p>
-
-            <p class="project-tools">
-              Add your next project here
-            </p>
-
-            <a class="project-link" href="#contact">Let’s connect →</a>
+            <a
+              class="project-link"
+              href="https://app.powerbi.com/view?r=eyJrIjoiNWJjMDBlNTItY2EwZC00ZjJkLTg4ZjEtNjVkNTZiMDc1Yjg5IiwidCI6IjBkZTRmOTJjLTY0NmItNGU5NS1iYTRmLTYwOTJiYWNjYjQ2MSJ9"
+              target="_blank">
+              Open interactive dashboard →
+            </a>
           </article>
         </div>
       </div>
@@ -586,8 +561,8 @@
               <ul class="resume-list">
                 <li>Data querying and analysis with SQL</li>
                 <li>Interactive dashboard development with Power BI</li>
-                <li>Data cleaning and transformation using Power Query</li>
-                <li>Data modelling and calculated measures using DAX</li>
+                <li>Data cleaning and transformation with Power Query</li>
+                <li>Data modelling and calculated measures with DAX</li>
                 <li>Data analysis and reporting with Microsoft Excel</li>
               </ul>
             </div>
@@ -612,7 +587,10 @@
               </p>
             </div>
 
-            <a class="button button-primary" href="#" onclick="window.print(); return false;">
+            <a
+              class="button button-primary"
+              href="#"
+              onclick="window.print(); return false;">
               Save Resume as PDF
             </a>
           </div>
@@ -624,13 +602,16 @@
       <div class="container">
         <p class="section-label">Contact</p>
         <h2>Let’s work with data.</h2>
+
         <p>
           I am open to entry-level data analyst opportunities, internships,
           collaboration, and conversations about data-driven work.
         </p>
 
-        <!-- Replace this with your LinkedIn link later -->
-        <a class="button button-primary" href="https://github.com/Juned123k" target="_blank">
+        <a
+          class="button button-primary"
+          href="https://github.com/Juned123k"
+          target="_blank">
           Visit My GitHub
         </a>
       </div>
